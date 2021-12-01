@@ -23,9 +23,13 @@ function Credentials () {
     }));
   }
 
+  const handleSubmit = () => {
+    alert('working')
+  }
+
 
   return (
-    <form className = "credentials">
+    <form className = "credentials" onSubmit = {handleSubmit}>
       <label > Username:
       <input
         id = "username"
@@ -45,7 +49,8 @@ function Credentials () {
         name = "password"
         value = {values.password}
         onChange = {handlePasswordChange} />
-      </label>
+      </label><br></br>
+      <input type ="Submit" value="Login" />
     </form>
   )
 }
