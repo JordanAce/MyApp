@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Login from './components/Login.jsx'
+import '../public/styles.css'
 
-const App = () => {
-  return (
-    <div>
-      <h1>MY APP</h1>
-      <h2>TESTING</h2>
-    </div>
-  )
+class App extends React.Component {
+  render () {
+    return (
+      <div>
+        <h1 className = "title">My App</h1>
+        <Login />
+      </div>
+    )
+  }
 }
 
 ReactDOM.render(<App />, document.getElementById("app"));
