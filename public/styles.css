@@ -51,7 +51,7 @@ body {
 .links {
   display: flex;
   justify-content: space-around;
-  height: 35%;
+  height: 40%;
   align-items: flex-end;
 }
 
@@ -64,6 +64,14 @@ body {
   border: none;
   outline: none;
 }
+
+.back-to-login {
+  display: flex;
+  justify-content: center;
+  height: 35%;
+  align-items: flex-end;
+}
+
 
 
 

@@ -42,23 +42,22 @@ function Login() {
            {/* Only Render Correct Bottom Links */}
 
            {/* In Credentials Screen */}
-           <div className = "links">
             {credentials &&
-            <div className = "links">
+           <div className = "links">
               <div className = "forgot-password">
-                <button className = "button-solid" onClick = {handleForgotPasswordClick}>Forgot Password?</button>
+                <button className = "button-solid" id = "password" onClick = {handleForgotPasswordClick}>Forgot Password?</button>
               </div>
               <div className = "signup">
-                <button className = "button-solid" onClick = {handleSignUpClick}>Sign Up</button>
+                <button className = "button-solid" id = "signup" onClick = {handleSignUpClick}>Sign Up</button>
               </div>
             </div>
-
             }
+            <div className = "back-to-login">
               {forgotPassword && <BackToLogin />}
               {signUp && <BackToLogin />}
+            </div>
           </div>
        </div>
-      </div>
     )
 }
 export default Login;
