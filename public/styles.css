@@ -36,6 +36,34 @@ body {
   color: cadetblue;
 }
 
+.credentials {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.success-message {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.links {
+  display: flex;
+  justify-content: space-around;
+  height: 40%;
+  align-items: flex-end;
+}
+
+.button-solid {
+  border: none;
+  background-color: white;
+}
+
+.button-solid:focus {
+  border: none;
+  outline: none;
+}
 
 
 
