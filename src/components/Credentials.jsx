@@ -33,6 +33,7 @@ function Credentials () {
 
   return (
     <div>
+      <p className = "login">Login</p>
     <form className = "credentials" onSubmit = {handleSubmit}>
       <label > Username:
       <input
