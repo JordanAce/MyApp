@@ -51,7 +51,7 @@ body {
 .links {
   display: flex;
   justify-content: space-around;
-  height: 40%;
+  height: 35%;
   align-items: flex-end;
 }
 
@@ -64,6 +64,8 @@ body {
   border: none;
   outline: none;
 }
+
+
 
 
 
