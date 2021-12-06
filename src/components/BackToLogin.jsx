@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Login from './Login.jsx'
+import App from './Login.jsx'
 
 function BackToLogin () {
 
@@ -11,7 +11,7 @@ function BackToLogin () {
   return (
     <div>
       <button className = "button-solid" onClick = {handleBackToLoginClick}>Back to Login</button>
-      {loginClicked && <Login />}
+      {loginClicked && <App />}
     </div>
   )
 }
