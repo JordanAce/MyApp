@@ -34,15 +34,9 @@ function Login() {
       <div className = "box">
         <div className = "centered fixed">
            <div className = "inputs">
-              {/* Conditionally render correct component */}
-             {forgotPassword && <ForgotPassword />}
-             {signUp && <SignUp />}
-             {credentials && <Credentials />}
+             <Credentials />
            </div>
            {/* Only Render Correct Bottom Links */}
-
-           {/* In Credentials Screen */}
-            {credentials &&
            <div className = "links">
               <div className = "forgot-password">
                 <button className = "button-solid" id = "password" onClick = {handleForgotPasswordClick}>Forgot Password?</button>
@@ -50,11 +44,6 @@ function Login() {
               <div className = "signup">
                 <button className = "button-solid" id = "signup" onClick = {handleSignUpClick}>Sign Up</button>
               </div>
-            </div>
-            }
-            <div className = "back-to-login">
-              {forgotPassword && <BackToLogin />}
-              {signUp && <BackToLogin />}
             </div>
           </div>
        </div>
