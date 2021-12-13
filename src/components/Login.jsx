@@ -1,21 +1,16 @@
-import React, {useState, useEffect} from 'react';
-import BackToLogin from './BackToLogin.jsx';
+import React, {useState, useEffect, useReducer} from 'react';
 import Credentials from './Credentials.jsx';
-import ForgotPassword from './ForgotPassword.jsx';
-import SignUp from './SignUp.jsx';
-
+import reducer from '../app.js';
 function Login() {
 
+  const [state, dispatch] = useReducer(reducer, data)
   const [count, setCount] = useState(0);
-  const [forgotPassword, setForgotPassword] = useState(false);
-  const [signUp, setSignUp] = useState (false);
-  const [credentials, setCredentials] = useState(true);
+
 
 
   //Change State if Forgot Password clicked
   const handleForgotPasswordClick = () => {
-    setForgotPassword(true);
-    setCredentials(false);
+    dispatch({type: "RENDER_FORGOT_PASSWORD"})
   }
 
   //Change State if Sign Up clicked
@@ -36,10 +31,11 @@ function Login() {
            <div className = "inputs">
              <Credentials />
            </div>
-           {/* Only Render Correct Bottom Links */}
            <div className = "links">
               <div className = "forgot-password">
-                <button className = "button-solid" id = "password" onClick = {handleForgotPasswordClick}>Forgot Password?</button>
+                <button className = "button-solid" id = "password" onClick = {() => {
+                  dispatch({ type: "RENDER_FORGOT_PASSWORD"});
+                }}>Forgot Password?</button>
               </div>
               <div className = "signup">
                 <button className = "button-solid" id = "signup" onClick = {handleSignUpClick}>Sign Up</button>

@@ -58,6 +58,7 @@ body {
 .button-solid {
   border: none;
   background-color: white;
+  margin-bottom: auto;
 }
 
 .button-solid:focus {

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useReducer} from 'react';
 import BackToLogin from './BackToLogin.jsx';
 
 function ForgotPassword () {
@@ -31,7 +31,8 @@ function ForgotPassword () {
   }
 
   return (
-    <div>
+    <div className = "box">
+        <div className = "centered fixed">
     <p className = "login">Reset Password</p>
     <form className = "credentials" onSubmit = {handleSubmit}>
       <label > Username:
@@ -66,6 +67,12 @@ function ForgotPassword () {
       </label><br></br>
       <input type ="submit" value="Submit" />
     </form>
+    <div className = "links">
+              <div className = "forgot-password">
+                <BackToLogin />
+              </div>
+            </div>
+    </div>
     </div>
   )
 }

@@ -1,49 +1,59 @@
-import React, {useReducer} from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import Login from './components/Login.jsx'
 import ForgotPassword from './components/ForgotPassword.jsx';
 import SignUp from './components/SignUp.jsx'
 import '../public/styles.css'
 
-const reducer = (state, action) => {
-  switch(action.type) {
-    case "RENDER_LOGIN":
-      return {
-        login: true,
-        forgotpassword: false,
-        signup: false
-      }
-    case "RENDER_FORGOT_PASSWORD":
-      return {
-        login: false,
-        forgotpassword: true,
-        signup: false
-      }
-    case "RENDER_SIGNUP":
-      return {
-        login: false,
-        forgotpassword: false,
-        signup: true
-      }
+const [state, setState] = useState({
+  login: true,
+  forgotPassword: false,
+  signup: false
+  })
+
+function switchComponent (e) {
+  let name = e.target.getAttribute("name")
+
+  if (name === 'login') {
+    setState((state) => ({
+      login: true,
+      forgotPassword: false,
+      signup: false
+    }));
   }
+
+  if (name === 'forgotPassword') {
+    setState((state) => ({
+      login: false,
+      forgotPassword: true,
+      signup: false
+    }));
+  }
+
+  if (name === 'signup') {
+    setState((state) => ({
+      login: false,
+      forgotPassword: false,
+      signup: true
+    }));
+  }
+
 }
 
-const App = () => {
-  const initialState = {
-    login: false,
-    forgotpassword: false,
-    signup: true
-  }
 
-  const [state, dispatch] = useReducer(reducer, initialState)
+const App = () => {
   return (
     <div>
       <h1 className = "title">My App</h1>
-      {state.login && <Login />}
-      {state.forgotpassword && <ForgotPassword />}
-      {state.signup && <SignUp />}
+      {state.login && <Login switchComponent={switchComponent}/>}
+      {state.forgotpassword && <ForgotPassword switchComponent={switchComponent}/>}
+      {state.signup && <SignUp switchComponent={switchComponent}/>}
     </div>
   )
 }
+
+
+
+export default reducer;
 
 ReactDOM.render(<App />, document.getElementById("app"));
