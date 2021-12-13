@@ -5,6 +5,8 @@ import ForgotPassword from './components/ForgotPassword.jsx';
 import SignUp from './components/SignUp.jsx'
 import '../public/styles.css'
 
+const App = () => {
+
 const [state, setState] = useState({
   login: true,
   forgotPassword: false,
@@ -41,19 +43,15 @@ function switchComponent (e) {
 }
 
 
-const App = () => {
   return (
     <div>
       <h1 className = "title">My App</h1>
       {state.login && <Login switchComponent={switchComponent}/>}
-      {state.forgotpassword && <ForgotPassword switchComponent={switchComponent}/>}
+      {state.forgotPassword && <ForgotPassword switchComponent={switchComponent}/>}
       {state.signup && <SignUp switchComponent={switchComponent}/>}
     </div>
   )
 }
 
-
-
-export default reducer;
 
 ReactDOM.render(<App />, document.getElementById("app"));

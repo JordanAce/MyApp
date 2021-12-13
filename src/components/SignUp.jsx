@@ -1,8 +1,7 @@
-import React, {useState, useReducer} from 'react';
-import BackToLogin from './BackToLogin.jsx'
+import React, {useState} from 'react';
 
 
-function SignUp () {
+function SignUp ({switchComponent}) {
 
   const [values, setValues] = useState({
     userName: '',
@@ -80,7 +79,7 @@ function SignUp () {
 
            <div className = "links">
               <div className = "forgot-password">
-                <BackToLogin />
+              <button className = "button-solid" id = "login" onClick = {switchComponent} name = "login">Back to Login</button>
               </div>
             </div>
         </div>

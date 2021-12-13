@@ -1,7 +1,6 @@
-import React, {useState, useReducer} from 'react';
-import BackToLogin from './BackToLogin.jsx';
+import React, {useState} from 'react';
 
-function ForgotPassword () {
+function ForgotPassword ({switchComponent}) {
 
   const [values, setValues] = useState({
     userName: '',
@@ -68,10 +67,10 @@ function ForgotPassword () {
       <input type ="submit" value="Submit" />
     </form>
     <div className = "links">
-              <div className = "forgot-password">
-                <BackToLogin />
-              </div>
-            </div>
+      <div className = "forgot-password">
+      <button className = "button-solid" id = "login" onClick = {switchComponent} name = "login">Back to Login</button>
+      </div>
+    </div>
     </div>
     </div>
   )
