@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+const axios = require ('axios');
 
 function Credentials() {
   const [values, setValues] = useState({
@@ -27,6 +28,17 @@ function Credentials() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
+    axios.post({
+      method: 'post',
+      url: '/appUsers',
+      data: {
+        userName: values.userName,
+        password: values.password
+      }
+    }).catch((error) => {
+      console.log('Error in Post function', error)
+    })
+
   };
 
   return (
