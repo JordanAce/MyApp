@@ -7,8 +7,8 @@ const userSchema = new mongoose.Schema ({
     required: true
   },
   email: {
-    type: String,
-    required: true
+    type: String
+    // required: true
   },
   password: {
     type: String,
@@ -20,24 +20,24 @@ const User = mongoose.model('appUsers', userSchema);
 
 const save = (user) => {
   console.log('Inside Save Function', user);
-  // User.findOne({userName: favoritesTitle}, function (err, response) {
-  //   if (err) {
-  //     console.log(err)
-  //   }
-  //   if (response) {
-  //     console.log("Already saved to favorites")
-  //   }
-  //   else {
-  //     let newFavorite = new Star (favoriteData);
-  //     newFavorite.save(function(err, response) {
-  //       if (err) {
-  //         console.log(err)
-  //       } else {
-  //         console.log("Saved to favorites")
-  //       }
-  //     })
-  //   }
-  // })
+  User.findOne({userName: user.userName}, function (err, response) {
+    if (err) {
+      console.log(err)
+    }
+    if (response) {
+      console.log("Already saved to users")
+    }
+    else {
+      let newUser = new User (user);
+      newUser.save(function(err, response) {
+        if (err) {
+          console.log(err)
+        } else {
+          console.log("Saved to users")
+        }
+      })
+    }
+  })
 }
 
 module.exports.save = save;
