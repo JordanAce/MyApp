@@ -4,6 +4,7 @@ import Login from "./components/Login.jsx";
 import ForgotPassword from "./components/ForgotPassword.jsx";
 import SignUp from "./components/SignUp.jsx";
 import "../public/styles.css";
+import "regenerator-runtime/runtime";
 
 const App = () => {
   const [state, setState] = useState({
