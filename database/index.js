@@ -7,8 +7,8 @@ const userSchema = new mongoose.Schema ({
     required: true
   },
   email: {
-    type: String
-    // required: true
+    type: String,
+    required: true
   },
   password: {
     type: String,
@@ -26,12 +26,13 @@ const save = (user) => {
     }
     if (response) {
       console.log("Already saved to users")
+      return response;
     }
     else {
       let newUser = new User (user);
       newUser.save(function(err, response) {
         if (err) {
-          console.log(err)
+          console.log('Error Saving to Database', err)
         } else {
           console.log("Saved to users")
         }

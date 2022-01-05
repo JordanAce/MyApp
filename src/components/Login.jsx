@@ -4,10 +4,10 @@ import Credentials from "./Credentials.jsx";
 function Login({ switchComponent }) {
   const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    setCount(count + 1);
-    console.log(`Refresh Count ${count}`);
-  }, []);
+  // useEffect(() => {
+  //   setCount(count + 1);
+  //   console.log(`Refresh Count ${count}`);
+  // }, []);
 
   return (
     <div className="box">

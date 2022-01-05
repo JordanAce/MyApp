@@ -24,6 +24,7 @@ app.post('/appUsers', function (req, res) {
   let data = req.body;
   console.log('Inside Post Function', data);
   db.save(data);
+  return res;
 })
 
 app.listen(port, () => {

@@ -28,15 +28,6 @@ function Credentials() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitted(true);
-    await axios.post('/appUsers', {
-      userName: values.userName,
-      password: values.password
-    }).then((response) => {
-      console.log('Axios call made', response);
-    }).catch((error) => {
-      console.log('Error in Post function', error)
-    })
-
   };
 
   return (

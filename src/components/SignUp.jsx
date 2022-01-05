@@ -1,11 +1,16 @@
 import React, { useState } from "react";
+import axios from 'axios';
 
 function SignUp({ switchComponent }) {
+
   const [values, setValues] = useState({
     userName: "",
     password: "",
     confirmPassword: "",
+    email: ""
   });
+
+  const [submitted, setSubmitted] = useState(false);
 
   const handleUserNameChange = (e) => {
     e.persist();
@@ -31,10 +36,27 @@ function SignUp({ switchComponent }) {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleEmailChange = (e) => {
+    e.persist();
+    setValues((values) => ({
+      ...values,
+      email: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitted(true);
-  };
+    await axios.post('/appUsers', {
+      userName: values.userName,
+      password: values.password,
+      email: values.email
+    }).then((response) => {
+      console.log('Axios call made', response);
+    }).catch((error) => {
+      console.log('Error in Post function', error)
+    })
+  }
 
   return (
     <div className="box">
@@ -84,6 +106,21 @@ function SignUp({ switchComponent }) {
                 required
                 value={values.confirmPassword}
                 onChange={handleConfirmPasswordChange}
+              />
+            </label>
+            <br></br>
+            <label>
+              {" "}
+              E-Mail Address:
+              <input
+                id="email"
+                className="form-field"
+                placeholder="Email"
+                type="text"
+                name="email"
+                required
+                value={values.email}
+                onChange={handleEmailChange}
               />
             </label>
             <br></br>
